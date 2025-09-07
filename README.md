@@ -74,8 +74,8 @@ git clone https://github.com/Rubio83/CloudPuff-Vite.git
 ---
 
 ## 📌 開發上線部署流程說明
-![Git Branch Flow](./assets/images/git-branch.png)  
-![Deploy Flow](./assets/images/deploy-flow.png)
+![Git Branch Flow](./assets/git-branch.png)  
+![Deploy Flow](./assets/deploy-flow.png)
 
 ---
 
