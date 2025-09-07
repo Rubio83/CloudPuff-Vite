@@ -49,6 +49,6 @@ export default defineConfig({
           ])
       ),
     },
-    outDir: 'doc',
+    outDir: 'docs',
   },
 });
