@@ -1,4 +1,147 @@
-.header{
-  background: #69F0AE;
-  font-size: 64px;
+/* 1296px 容器：全站共用（保留你原本的設定） */
+.container-1296 {
+  max-width: 1296px;
+  width: 100%;
+  margin-inline: auto;   /* 置中 */
+  padding-inline: 12px;  /* 左右留白 */
+}
+
+/* === 全域：平滑滾動 & 錨點位移（避免被固定 Header 蓋住） === */
+html { scroll-behavior: smooth; }
+:root{
+  --header-h-desktop: 84px;  /* 依 Figma 實際高度可再調整 */
+  --header-h-mobile: 72px;
+}
+/* 錨點位移 */
+@media (min-width: 992px){
+  [id]{ scroll-margin-top: var(--header-h-desktop); }
+}
+@media (max-width: 991.98px){
+  [id]{ scroll-margin-top: var(--header-h-mobile); }
+}
+
+/* === Header 固定在頂端（不會被捲走） === */
+.cp-header{
+  position: fixed;   /* 固定 */
+  top: 0; left: 0; right: 0;
+  z-index: 1100;     /* 高於輪播/下拉 */
+  background: #fff;  /* 你的白底或淺藍底都可 */
+  border-bottom: 1px solid #E9EEF3;
+}
+/* 固定 header 後，補上方空間，避免內容被遮住 */
+@media (min-width: 992px){
+  body{ padding-top: var(--header-h-desktop); }
+}
+@media (max-width: 991.98px){
+  body{ padding-top: var(--header-h-mobile); }
+}
+
+/* 你的 header 內容仍置中於 1296px */
+.cp-header > .container-1296{
+  max-width: 1296px;
+  margin-inline: auto;
+  padding-inline: 12px;
+}
+
+/* Header 內容區塊：三欄對齊（保留你原本設計） */
+.cp-header .header-grid {
+  display: grid;
+  grid-template-columns: 125px 937px 234px;
+  align-items: center;
+  min-height: 84px; /* 與 --header-h-desktop 對齊 */
+}
+
+/* 品牌區 */
+.cp-header .brand-text .brand-line {
+  color: #3A3F45;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .18em;
+  line-height: 1.1;
+}
+
+/* 導覽列：置中 */
+.cp-header .header-nav .nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 56px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cp-header .nav-link {
+  color: #2B6C97;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: color .2s;
+}
+.cp-header .nav-link:hover,
+.cp-header .nav-link.active {
+  color: #205678;
+}
+
+/* Dropdown（避免被覆蓋） */
+.cp-header .dropdown-menu {
+  border: 1px solid #EFF4FA;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  z-index: 1200; /* 高於 header */
+}
+
+/* 右側購物袋 + 登入按鈕 */
+.cp-header .header-right > a:first-child {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #7EB6E6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2B6C97;
+  text-decoration: none;
+}
+
+.cp-header .btn.btn-primary {
+  background: #74AADC;
+  border: none;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  line-height: 1;
+  transition: background .25s;
+}
+.cp-header .btn.btn-primary:hover {
+  background: #6AA3D7;
+}
+
+/* RWD：保持內容在容器內，header 背景仍滿版 */
+@media (max-width: 1399.98px) {
+  .cp-header .header-grid {
+    grid-template-columns: 125px minmax(480px, 1fr) 234px;
+  }
+}
+@media (max-width: 991.98px) {
+  .cp-header .header-grid {
+    grid-template-columns: 1fr auto;
+    row-gap: 8px;
+  }
+  .cp-header .header-nav { display: none; } /* 手機版隱藏導覽，交給 offcanvas */
+}
+
+
+:root{
+  --header-h-desktop: 84px;  /* 依你的實際 header 高度調整 */
+  --header-h-mobile: 72px;
+}
+
+/* 讓錨點捲到時不會被 sticky header 蓋住 */
+[id]{ scroll-margin-top: var(--header-h-desktop); }
+
+@media (max-width: 991.98px){
+  [id]{ scroll-margin-top: var(--header-h-mobile); }
 }

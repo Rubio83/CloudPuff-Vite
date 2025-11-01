@@ -1,0 +1,218 @@
+// 背景色
+.bg-blue-white { 
+    
+    background-image: linear-gradient(
+        to bottom,     
+        $primary-100 0%, 
+        $white 100%     
+    );
+
+    height: 304px; 
+    overflow: hidden;
+    
+}
+
+@media (min-width: 992px) { 
+
+    .bg-blue-white{
+        height: 386px;
+    }
+    
+}
+// 上方的跑馬燈
+.marquee {
+    width: 100%;
+    height: 155px;
+    position: absolute;
+    bottom:40px;
+    left: 0;
+
+    background-image: url('/assets/images/illus.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%; 
+    background-position: 0% bottom; 
+    
+    animation-name: marquee; 
+    animation-duration: 10s; 
+    animation-iteration-count: infinite;  
+    animation-direction: normal;
+    animation-timing-function: linear;
+    z-index: 1;
+}
+
+@keyframes marquee {
+  from {
+    background-position: 0% bottom; 
+  }
+  to {
+    background-position: -200% bottom; 
+  }
+}
+
+/* 中央疊加的圓圈樣式-買泡芙 */
+.buy-circle {
+    position: absolute;
+    bottom:0;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(50%);
+
+    /* 圓圈樣式 */
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background-color: white;
+    bottom:0;
+    left: 0;
+    
+    /* 文字樣式 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+
+}
+
+
+
+@media (min-width: 992px) { 
+
+    .buy-circle {
+        /* 圓圈樣式 */
+        width: 306px;
+        height: 306px;
+
+        //文字樣式
+        font-size: 48px;
+
+        left: 0;
+        transform: translateX(0);
+    }
+    
+}
+
+//手機版的dropdown置中
+.dropdown-center{
+    border-bottom: 1px solid $primary-200;
+    margin: 0 auto;
+
+  .dropdown-item {
+     border-bottom: 1px solid $primary-200;
+  
+  &:hover {
+    background-color: transparent;
+    border-bottom: 2px solid $primary-200;
+
+  }
+ }
+  
+
+  .dropdown-menu{
+    border-bottom: 1px solid $white;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+
+
+  }
+
+
+
+
+
+}
+
+//產品頁面主要內容區域樣式
+.list-unstyled{
+
+ a{
+    width: 196px;
+    border-bottom: 1px solid $primary-200;
+
+    &:hover{
+    border-bottom: 5px solid $primary-200;
+    }
+ }
+    
+}
+//底部的跑馬燈
+.marquee-bottom {
+    width: 100%;
+    height: 155px;
+    position: absolute;
+    bottom:-64px;
+    left: 0;
+
+    background-image: url('/assets/images/illus.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%; 
+    background-position: 0% bottom; 
+    
+    animation-name: marquee; 
+    animation-duration: 10s; 
+    animation-iteration-count: infinite;  
+    animation-direction: normal;
+    animation-timing-function: linear;
+    z-index: 2;
+}
+
+@keyframes marquee {
+  from {
+    background-position: 0% bottom; 
+  }
+  to {
+    background-position: -200% bottom; 
+  }
+}
+
+//分頁按鈕置
+.custom-pagination {
+
+    .page-item {
+        margin: 0 16px; 
+    }
+
+    .page-link {
+        width: 40px; 
+        height: 40px; 
+        
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        
+        padding: 0;
+        line-height: normal; 
+        font-family: 'Noto Serif TC', serif;
+        font-size: 20px; 
+        font-weight: 600; 
+
+        border-radius: 50%;
+        color: $primary; 
+        border: 1px solid $primary;
+        background-color: transparent;
+        margin-bottom: 69px;
+        
+        //hover 狀態
+        &:hover {
+            color: $white; 
+            background-color: $primary;;
+            box-shadow: none;
+        }
+    }
+
+    .page-item.active .page-link {
+        color: $white; 
+        background-color: $primary;
+        border-color: $primary; /* 確保邊框也被選中色覆蓋 */
+        box-shadow: none; 
+    }
+
+    
+    /* 確保箭頭圖標大小合適 */
+    .material-symbols-outlined {
+        font-size: 16px; /* 根據數字大小調整圖標大小 */
+    }
+
+}
+    
+
+
+

@@ -1,0 +1,77 @@
+.btn-blue {
+  border-radius: 50%;
+  border: 1px solid $primary;
+  background-color: $primary;
+  color: $white;
+
+  width: 40px; //手機版按鈕大小
+  height: 40px;
+  transition: all 0.3s ease;
+
+  .material-symbols-outlined {
+    font-size: 14px;
+  }
+
+  &:hover {
+    background-color: $primary-400;
+    border-color: $primary-400;
+    color: $white; 
+  }
+}
+
+
+
+.orangeoutline-btn{
+  border-radius: 50%;
+  border: 1px solid $secondary;
+  background-color: $white;
+  color: $secondary;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+
+
+
+  &:hover {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: $white; 
+  }
+}
+
+.blueoutline-btn{
+  border-radius: 50%;
+  border: 1px solid $primary;
+  background-color: $white;
+  color: $primary;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+
+
+
+  &:hover {
+    background-color: $primary;
+    border-color: $primary;
+    color: $white; 
+  }
+}
+
+@media (min-width: 992px) {
+
+  .btn-blue {
+  width: 48px;
+  height: 48px;
+  } 
+
+  .blueoutline-btn {
+  width: 48px;
+  height: 48px;
+  } 
+
+  .orangeoutline-lg-btn{
+  width: 48px;
+  height: 48px;
+  }
+
+}
