@@ -1,3 +1,61 @@
-.index-title {
-  font-size: 100px;
+/* 主要圖與縮圖的物件填滿 */
+.object-fit-cover { object-fit: cover; }
+
+/* 產品頁右側群組：置左對齊 */
+.purchase-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* 數量欄高度與樣式 */
+.purchase-qty-group { height: 44px; }
+
+/* 購買按鈕：同高 */
+.purchase-actions .btn {
+  height: 48px;
+  font-weight: 700;
+}
+
+/* 縮圖 active 樣式 */
+button.thumb.active,
+button.thumb:focus {
+  outline: none;
+  border-color: #74AADC !important;
+  box-shadow: 0 0 0 3px rgba(116,170,220,.25);
+}
+
+
+button.thumb img { border-radius: .375rem; }
+
+.product-features .feature { position: relative; }
+.product-features .feature .feature-card {
+  /* 手機預設：卡片在圖片下方（非絕對定位） */
+  position: static;
+  max-width: 360px;
+  margin-top: 1rem;
+  border-radius: .75rem;
+}
+
+/* ≥ lg：把卡片疊到圖片上，並做三種位置的排版 */
+@media (min-width: 992px) {
+  .product-features .feature { margin-bottom: 4.5rem; }
+  .product-features .feature .feature-card {
+    position: absolute;
+    inset: auto auto;          /* 解除預設 */
+    left: 120px;               /* 預設：靠左 */
+    top: 64px;                 /* 預設：上偏下 */
+    margin-top: 0;
+  }
+  /* 第二塊：靠右置中偏上（與圖示一致） */
+  .product-features .feature .feature-card--right {
+    right: 120px;
+    left: auto;
+    top: 40px;
+  }
+}
+
+.product-feature-title {
+  background-color: #E9F3FA; /* 淺藍底色 */
+  margin-top: 80px;          /* 與上方區塊距離 */
 }

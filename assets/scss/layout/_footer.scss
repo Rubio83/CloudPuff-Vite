@@ -1,4 +1,242 @@
-.footer{
-  background: #69F0AE;
-  font-size: 64px;
+$container-max:         1296px;          // 主容器寬
+$container-pad-x:       12px;            // 左右內距
+
+/* 版面與背景 */
+$footer-bg-image:       "/assets/images/footer-bg.png";     // 背景圖路徑
+$footer-pad-top:        104px;            // 上內距（Desktop）
+$footer-pad-bottom:     96px;             // 下內距（Desktop）
+$footer-overlay:        rgba(0,0,0,.38);  // 背景上方的暗化遮罩
+$footer-grid-gap:       80px;             // 左右欄間距（Desktop）
+$footer-columns:        2;                // 欄數（Desktop）
+
+/* 顏色（依 Figma 色碼填寫） */
+$c-white:               #FFFFFF;
+$c-white-90:            rgba(255,255,255,0.90);
+$c-white-70:            rgba(255,255,255,0.70);
+$c-white-50:            rgba(255,255,255,0.50);
+$c-link:                #D3E8FF;         
+$c-accent:              #1F5E8C;        
+
+/* 字體（依 Figma） */
+$font-serif:            'Noto Serif TC', serif;   
+$font-sans:             'Noto Sans TC', sans-serif;
+
+/* Typography：左側品牌與標語 */
+$title-font:            $font-serif;
+$title-size:            48px;            
+$title-line:            1.2;
+$title-weight:          700;
+$title-tracking:        0;               // 文字間距（em為單位時可改成 .05em）
+
+$subtitle-font:         $font-serif;
+$subtitle-size:         24px;            // 一口泡芙，一口雲朵的輕盈…
+$subtitle-line:         1.6;
+$subtitle-weight:       400;
+$subtitle-color:        $c-white-90;
+$subtitle-gap-bottom:   32px;
+
+/* 門市標題/項目 */
+$store-title-size:      28px;            // 台北總店 / 台中分店
+$store-title-weight:    700;
+$store-title-line:      1.35;
+$store-title-gap-bottom:16px;
+
+$store-item-size:       18px;            // 週二至周日…/ 地址 / 電話
+$store-item-line:       1.7;
+$store-item-gap:        10px;            // 每行間距
+$store-icon-size:       18px;
+$store-icon-gap:        10px;            // icon 與文字距離
+$store-block-gap:       40px;            // 同欄不同門市之間的距離
+
+/* 右側：社群 icon + 導覽列 */
+$social-size:           44px;            // 圓形外徑
+$social-stroke:         2px;             // 白色描邊粗細
+$social-gap:            24px;
+$social-hover-bg:       $c-white;        // hover 反白
+$social-hover-fg:       $c-accent;
+
+$links-gap:             48px;            // 右下導覽連結間距
+$link-size:             16px;
+$link-weight:           500;
+
+
+$bp-lg:                 992px;
+
+
+.cp-footer {
+  position: relative;
+  color: $c-white;
+  background: url(#{$footer-bg-image}) center / cover no-repeat;
+  padding-top: $footer-pad-top;
+  padding-bottom: $footer-pad-bottom;
+
+  /* overlay */
+  &::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $footer-overlay;
+  }
+
+  /* 內容限縮容器 */
+  > .container-1296 {
+    position: relative; /* 蓋過 overlay */
+    z-index: 1;
+    max-width: $container-max;
+    margin-inline: auto;
+    padding-inline: $container-pad-x;
+  }
+
+  /* 上下兩大區：左（品牌與門市）／右（社群與導覽） */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat($footer-columns, 1fr);
+    align-items: start;
+    gap: $footer-grid-gap;
+  }
+
+  /* 左側：品牌與標語 */
+  .footer-brand {
+    font-family: $title-font;
+
+    .brand-title {
+      font-family: $title-font;
+      font-size: $title-size;
+      line-height: $title-line;
+      font-weight: $title-weight;
+      letter-spacing: $title-tracking;
+      color: $c-white;
+      margin: 0 0 12px;
+    }
+
+    .brand-subtitle {
+      font-family: $subtitle-font;
+      font-size: $subtitle-size;
+      line-height: $subtitle-line;
+      font-weight: $subtitle-weight;
+      color: $subtitle-color;
+      margin: 0 0 $subtitle-gap-bottom;
+    }
+  }
+
+  /* 門市資訊清單 */
+  .stores {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $footer-grid-gap;
+
+    .store {
+      margin-bottom: $store-block-gap;
+
+      .store-title {
+        font-size: $store-title-size;
+        font-weight: $store-title-weight;
+        line-height: $store-title-line;
+        margin: 0 0 $store-title-gap-bottom;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: $store-icon-gap;
+          font-size: $store-item-size;
+          line-height: $store-item-line;
+          color: $c-white-90;
+          margin-bottom: $store-item-gap;
+
+          i, .icon {
+            font-size: $store-icon-size;
+            line-height: 1;
+            width: $store-icon-size;
+            height: $store-icon-size;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  /* 右側區：社群 icon + 導覽連結 */
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 40px;
+
+    .social-icons {
+      display: flex;
+      gap: $social-gap;
+
+      a {
+        width: $social-size;
+        height: $social-size;
+        border-radius: 50%;
+        border: $social-stroke solid $c-white;
+        color: $c-white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+
+        &:hover {
+          background-color: $social-hover-bg;
+          color: $social-hover-fg;
+          border-color: $social-hover-bg;
+        }
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $links-gap;
+      justify-content: flex-end;
+
+      a {
+        color: $c-white;
+        text-decoration: none;
+        font-family: $font-sans;
+        font-size: $link-size;
+        font-weight: $link-weight;
+        transition: color .2s;
+
+        &:hover { color: $c-white-70; }
+      }
+    }
+  }
+}
+
+/* ===== RWD（以下依 Figma 移動端規格調整） ===== */
+@media (max-width: $bp-lg) {
+  .cp-footer {
+    padding-top: ($footer-pad-top * 0.7);
+    padding-bottom: ($footer-pad-bottom * 0.7);
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: ($footer-grid-gap * 0.75);
+    }
+
+    .stores {
+      grid-template-columns: 1fr;
+      gap: ($footer-grid-gap * 0.6);
+    }
+
+    .footer-nav {
+      align-items: center;
+
+      .footer-links {
+        justify-content: center;
+        gap: ($links-gap * 0.75);
+      }
+    }
+  }
 }

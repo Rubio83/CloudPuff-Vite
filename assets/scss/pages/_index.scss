@@ -1,3 +1,330 @@
-.index-title {
-  font-size: 100px;
+
+.carousel-caption {
+  left: -20%;
+  right: 40%;
+}
+
+.carousel-image {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.limited-bg{ 
+  background-color: $primary-100;
+  background-image: url('/assets/images/497e084ff4f655cd9de43a60f7f3a3664347047c.png');
+  background-repeat: repeat;
+  background-size: 40px 40px;  //auto太醜了，用50px 50px 調整格子的大小
+  padding-bottom: 130px; //讓手機版的區塊有空間
+
+
+ .pb-130{
+  padding-bottom: 130px;
+  }
+ }
+  .limited-card {
+  position: absolute;
+  bottom:-130px; 
+  right: 0px; 
+  z-index: 3;
+  }
+
+  .limited-btn{
+  position: absolute;
+  top:0px;
+  transform: none;
+  right:0px;
+  z-index: 3;
+  }
+
+.limited-lg-bg{ 
+  background-color: $primary-100;
+  background-image: url('/assets/images/497e084ff4f655cd9de43a60f7f3a3664347047c.png');
+  background-repeat: repeat;
+  background-size: 40px 40px;  //auto太醜了，用50px 50px 調整格子的大小
+
+  .limited-lg-btn{ // 這是電腦版的按鈕
+  position: absolute;
+  top:100px;
+  transform: none;
+  right:0px;
+  z-index: 3
+  }
+
+  .limited-lg-card {
+  top:50%;
+  transform: translateY(-50%);
+  left: 0px; 
+  z-index: 3;
+  }
+}
+
+.news-img{
+  width: 100%;
+  height: auto;
+}
+
+.img-wrapper { //設定圖片外框
+  width: 100%;          
+  height: 310px;   
+  overflow: hidden;    
+  position: relative;
+}
+
+.pooular-img{
+  width: 100%;
+  height: 100% !important;
+  object-position: center; //圖片置中裁切 
+  object-fit: cover;
+  display: block;
+}
+
+.card-number {
+  position: absolute;
+  top: 20px;      
+  left: 12px;   
+  font-size: 80px;
+}
+
+/* 右上角愛心*/
+.fav {
+  position: absolute;
+  top: 8px;
+  right: 7.5px;
+  background: rgba(0, 0, 0, 0.4);
+  color:$white;
+  border: none;
+  border-radius: 50%;             
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;             // 讓圖標置中
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+    background: rgba(0, 0, 0, 0.6);
+  }
+  &:active {
+    transform: scale(1.2);
+
+   .material-symbols-outlined {
+    background-color: $white;
+   
+  }
+
+  .material-symbols-outlined {
+    font-size: 20px;               // 愛心大小
+  }
+}}
+
+@media (min-width: 992px) {
+  .fav {
+  top:12px;
+  right:12px;
+  width: 48px;
+  height: 48px;
+
+
+  }
+
+}
+
+
+
+
+.card-title-area {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  
+}
+
+.customer-bg-grid{ 
+  background-color: $primary-100;
+  background-image: url('/assets/images/497e084ff4f655cd9de43a60f7f3a3664347047c.png');
+  background-repeat: repeat;
+  background-size: 40px 40px;
+}
+
+.customer-card{
+  width: 160px;
+
+}
+
+.customer-img{
+  width: 48px;
+  height: 48px;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+ @media (min-width: 992px) {
+
+ .new-img {
+  width: 100%;
+  height: auto;
+  max-height:210px;
+  vertical-align: middle;
+  object-fit: cover;
+  overflow: hidden;
+  }
+
+
+
+.w-526{
+  width: 526px;
+}
+
+.img-wrapper { //設定圖片外框 
+  width: auto;
+  height: 420px;   
+  vertical-align: middle;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.card-number {
+  position: absolute;
+  top: 32px;      
+  left: 20px;     
+  font-size: 160px;
+}
+
+/* 綠色標題區 */
+.card-title-area {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.customer-card{
+  width: 306px;
+}
+
+.customer-img{
+  width: 56px;
+  height: 56px;
+}
+
+ }
+
+ .circle-wapper{
+  width: 306px;
+  height: 306px;
+  border:1px solid $primary-400;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+ }
+
+.circledown-box {
+  position: relative;
+  margin: 0 auto;
+  margin-top: -86px; /* 向上移動一半高度，剛好貼住圖片底部 */
+  padding: 48px 24px;
+
+  max-width: 351px;           
+  height: 351px;
+  background-color: $white;
+  border-radius: 50%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.circleup-box {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: -86px; /* 向上移動一半高度，剛好貼住圖片底部 */
+  padding: 48px 24px;
+
+  max-width: 351px;           
+  height: 351px;
+  background-color: $white;
+  border-radius: 50%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+//電腦版酥皮、內餒區塊
+
+
+.choux-title {
+  top: 80px;
+  right:0;
+  font-size: 160px;
+  line-height: 1;
+  pointer-events: none; // 不受鼠標事件影響
+  z-index: 2;
+  white-space: nowrap;
+  text-align:right;
+}
+
+.circle-right {
+  width: 526px;
+  height: 526px;
+  border-radius: 50%;
+  background-color: $white;
+  padding: 180px 64px;
+
+  position: absolute;
+  bottom: -218px; // 圓形向下蓋住圖片
+  transform: none;;
+  right: 0px; 
+  z-index: 3;
+  }
+
+
+.circle-left {
+  width: 526px;
+  height: 526px;
+  border-radius: 50%;
+  background-color: $white;
+  padding: 180px 64px;
+
+  position: absolute;
+  top: 0%;
+  left: 0px; 
+  transform: translateY(30%);
+  z-index: 5;
+  
+}
+
+.cream{
+  margin-top: 224px; // 多了80
+  position: relative;
+  z-index: 2;
+}
+
+
+.choux-bottom {
+  bottom: 0px;
+  left: 0;
+  font-size: 160px;
+  line-height: 1;
+  //pointer-events: none;
+  z-index: 1;
 }

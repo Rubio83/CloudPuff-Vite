@@ -1,0 +1,41 @@
+.custom-login-container {
+    padding: 32px 16px; /* 手機版內邊距 */
+}
+
+
+.custom-input-field {
+    
+    
+    .form-control {
+        // 移除 B5 預設邊框和陰影，實現簡潔線框
+        border: 1px solid $gray-border;
+        border-radius: 0;
+        box-shadow: none;
+
+        // 焦點時的樣式 (可自定義)
+        &:focus {
+            border-color: $black;
+            box-shadow: none;
+        }
+    }
+}
+
+
+.custom-full-btn {
+    background-color: $black;
+    border: none;
+    border-radius: 0;
+    
+    &:hover {
+        background-color: lighten($black, 20%);
+    }
+}
+
+.register-link{
+
+    &:hover {
+        color:$black;
+    }
+}
+
+

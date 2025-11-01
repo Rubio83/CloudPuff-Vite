@@ -1,0 +1,83 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    // 自訂 font-size
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      (
+        responsive: true
+      )
+    ),
+
+    // 自訂 letter-spacing
+    "letter-spacing": (
+      property: letter-spacing,
+      class: ls,
+      values: (
+        2: 0.02px,
+        3: 0.03px,
+        1: 1px,
+        0: -0.03px
+      )
+    )
+  )
+);
+
+
+// 文字顏色透明度-M
+.neutral-60a {
+  color:rgba($neutral, 0.6);
+}
+
+.dark-40a{
+  color:rbga($black,0.4);
+}
+
+.dark-60a{
+  color:rbga($dark,0.6);
+}
+
+//字體設定
+
+.font-serif-roman {
+  font-family: "Times New Roman", Georgia, serif;
+}
+.font-serif-tc {
+  font-family: 'Noto Serif TC', serif;
+}
+
+// 多行文字截斷工具類別
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; 
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .line-clamp { 
+    -webkit-line-clamp: 3; 
+    }
+}
+
+.vertical-text {
+  writing-mode: vertical-rl; 
+  text-orientation: upright;//垂直書寫模式,它控制字元本身的擺放方向
+  margin: 0 auto; 
+}
+
+//確保手機版是標準的橫向文字
+.vertical-h-text { 
+    writing-mode: horizontal-tb; 
+    display: block; 
+}
+
+@media (min-width: 992px) {
+    .vertical-h-text {
+        writing-mode: vertical-rl; 
+        display: inline-block; 
+        width: auto; 
+    }
+}
+
+
